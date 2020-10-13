@@ -20,6 +20,11 @@ public class StudentController {
     public List<Student> findAll(){
         return service.StudentInfo();
     }
+
+    @GetMapping("/calculate")
+    public List<Integer> findEachGroupStudentNumber() {
+        return service.calculateEachGroupStudentNumber();
+    }
 }
 
 

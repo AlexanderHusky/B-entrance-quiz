@@ -4,6 +4,7 @@ import com.thoughtworks.capability.gtb.entrancequiz.Dao.StudentDao;
 import com.thoughtworks.capability.gtb.entrancequiz.Model.Student;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -33,7 +34,18 @@ public class StudentService {
         return studentDao.getAllRandomstudents();
     }
 
-    public void calculateEachGroupStudentNumber() {
-        // 
+    public List<Integer> calculateEachGroupStudentNumber() {
+        /* 计算每一个Group中应该有的人数 */
+        List<Integer> eachGroupAllocatedNumberList = new ArrayList();
+        int totalStudentNumber = studentDao.getAllRandomstudents().size();
+        int temp = totalStudentNumber % 6;
+        int turn = (totalStudentNumber - temp) / 6;
+        for(int i=1; i<= temp; i++) {
+            eachGroupAllocatedNumberList.add(turn + 1);
+        }
+        for(int i = 1; i<= 6-temp; i++) {
+            eachGroupAllocatedNumberList.add(turn);
+        }
+        return eachGroupAllocatedNumberList;
     }
 }
