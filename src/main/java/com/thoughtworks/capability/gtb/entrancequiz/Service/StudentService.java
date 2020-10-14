@@ -15,7 +15,7 @@ public class StudentService {
     public StudentService(StudentDao studentInfo) {
         this.studentDao = studentInfo;
     }
-//TODO GTB: 如果命名足够表意，不实用注释，这些简单的步骤也是能够看懂的
+//TODO GTB: 如果命名足够表意，不使用注释，这些简单的步骤也是能够看懂的
 //TODO GTB: 方法名应该是驼峰形式，首字母小写
     // 创建学生对象，并添加到list当中
     public void AddStudent() {
