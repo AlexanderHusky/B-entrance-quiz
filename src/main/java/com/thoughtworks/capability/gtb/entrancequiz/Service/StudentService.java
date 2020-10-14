@@ -15,7 +15,8 @@ public class StudentService {
     public StudentService(StudentDao studentInfo) {
         this.studentDao = studentInfo;
     }
-
+//TODO GTB: 如果命名足够表意，不实用注释，这些简单的步骤也是能够看懂的
+//TODO GTB: 方法名应该是驼峰形式，首字母小写
     // 创建学生对象，并添加到list当中
     public void AddStudent() {
         Student student = new Student();
@@ -38,6 +39,7 @@ public class StudentService {
         /* 计算每一个Group中应该有的人数 */
         List<Integer> eachGroupAllocatedNumberList = new ArrayList();
         int totalStudentNumber = studentDao.getAllRandomstudents().size();
+        //TODO GTB：Magic number 6
         int temp = totalStudentNumber % 6;
         int turn = (totalStudentNumber - temp) / 6;
         for(int i=1; i<= temp; i++) {
